@@ -4,19 +4,22 @@
   <head>
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes' %>
+    <%= javascript_include_tag 'application' %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="container">
+      <%= render :partial => "shared/header" %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
       
       <%- if show_title? -%>
-        <h1><%=h yield(:title) %></h1>
+        <h2><%=h yield(:title) %></h2>
       <%- end -%>
       
       <%= yield %>
+      <%= render :partial => "shared/footer" %>
     </div>
   </body>
 </html>

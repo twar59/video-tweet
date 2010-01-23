@@ -1,11 +1,9 @@
-<% title "Welcome to video tweet" %>
+<% title "Welcome to Video Tweet" %>
 
-<h3>video: <%= @current_video.title%></h3>
-<h3>video: <%= @current_video.description%></h3>
+<%= render :partial => "shared/embed_youtube", :locals => {:video => @current_video} %>
 
-others...
 <ul>
   <% @videos.each do |video|  %>
-    <li> <%= video.title %> </li>
+    <%= render :partial => "shared/thumbnail_youtube", :locals => {:video => video} %>
   <% end %>
 </ul>

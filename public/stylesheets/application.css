@@ -30,6 +30,7 @@ a {
 #flash_notice, #flash_error {
   padding: 5px 8px;
   margin: 10px 0;
+  width: 400px;
 }
 
 #flash_notice {
@@ -78,4 +79,23 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
+}
+
+.clear {
+  clear: both;
+}
+.thumb_line .thumbnail {
+  float: left;
+}
+.thumb_line .description {
+  padding-left:145px;
+}
+
+.navbar { float: right; }
+
+.hmenu li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
 }
