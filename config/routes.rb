@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :"username:strings"
+
   map.resources :videos
 
   map.signup 'signup', :controller => 'users', :action => 'new'

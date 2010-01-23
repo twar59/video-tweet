@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :twitter_id
       t.string :name
       t.text   :bio
+      t.boolean   :is_admin
       t.string :persistence_token
       t.string :crypted_password
       t.string :password_salt
