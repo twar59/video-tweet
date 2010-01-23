@@ -1,0 +1,11 @@
+<% title "Welcome to video tweet" %>
+
+<h3>video: <%= @current_video.title%></h3>
+<h3>video: <%= @current_video.description%></h3>
+
+others...
+<ul>
+  <% @videos.each do |video|  %>
+    <li> <%= video.title %> </li>
+  <% end %>
+</ul>

@@ -1,0 +1,6 @@
+development:
+  pool_size: 20
+staging:
+  pool_size: 20
+production:
+  pool_size: 20
