@@ -1,0 +1,14 @@
+<% semantic_form_for @user do |form| %>
+	<% form.inputs do %>
+		<%= form.input :username %>
+		<%= form.input :email %>
+		<%= form.input :twitter_id %>
+		<%= form.input :name %>
+    <%= form.input :bio %>
+    <%= form.input :password, :as => :password %>
+    <%= form.input :password_confirmation, :as => :password %>
+	<% end %>
+	<% form.buttons do %>
+		<%= form.commit_button 'Submit' %>
+	<% end %>
+<% end %>

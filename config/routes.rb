@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :"username:strings"
+  map.resources :users
+
+  map.resources :users
+
 
   map.resources :videos
 
