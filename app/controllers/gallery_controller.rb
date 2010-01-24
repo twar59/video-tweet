@@ -1,10 +1,8 @@
-class StaticController < ApplicationController
+class GalleryController < ApplicationController
   def index
-
+    # for login form
     @user_session = UserSession.new
 
-    # TODO: This does not handle zero videos
-    
     if current_user
       @videos = current_user.videos
     else

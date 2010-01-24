@@ -10,13 +10,15 @@
   <body>
     <div id="container">
       <%= render :partial => "shared/header" %>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
       
       <%= yield %>
 
       <%= render :partial => "shared/footer" %>
+
+      <!-- just put flash out of the way for now -->
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
     </div>
   </body>
 </html>

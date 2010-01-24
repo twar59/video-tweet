@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => 'static'
+  map.root :controller => 'gallery'
   map.resources :users
   map.resources :videos, :except => [:show]
   map.resources :user_sessions, :only => [:new, :create, :destroy]
