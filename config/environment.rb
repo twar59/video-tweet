@@ -10,6 +10,6 @@ Rails::Initializer.run do |config|
   config.gem "formtastic"
   config.gem "validation_reflection"
   config.gem "authlogic"
-  config.gem "will_paginate"
+#  config.gem "will_paginate"
   config.time_zone = 'UTC'
 end
