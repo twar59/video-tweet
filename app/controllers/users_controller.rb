@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  before_filter :require_owner, :only => [:edit, :update, :show]
+  before_filter :require_admin, :only => [:index, :new, :create, :destroy]
+
   def index
     @users = User.all
   end
   
   def show
-    @user = User.find(params[:id])
   end
   
   def new
@@ -15,18 +17,20 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Successfully created user."
-      redirect_to @user
+      if logged_in? && current_user.is_admin
+        redirect_to @user 
+      else
+        redirect_to root_url
+      end
     else
       render :action => 'new'
     end
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated user."
       redirect_to @user
@@ -36,9 +40,15 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     flash[:notice] = "Successfully destroyed user."
     redirect_to users_url
+  end
+
+  protected
+
+  def require_owner
+    @user = User.find(params[:id])
+    access_denied unless @user.id == current_user.id
   end
 end

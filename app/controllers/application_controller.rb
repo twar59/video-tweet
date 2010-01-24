@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  def access_denied
+    render :text => "Access denied."
+  end
+
+  def require_admin
+    login_required
+    access_denied unless current_user.is_admin
+  end
 end

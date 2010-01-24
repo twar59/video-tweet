@@ -1,0 +1,18 @@
+<div id="video_gallery" class="galleryview">
+  <% videos.each do |video|  %>
+    <div class="panel">
+      <%= render :partial => "embed_youtube", :locals => {:video => video, :size =>0} %>
+    <div class="panel-overlay">
+      <strong><%= video.title%></strong>
+      <p><%= video.description %></p>
+    </div>
+    </div>
+  <% end %>
+
+  <ul class="filmstrip">
+    <% @videos.each do |video|  %>
+      <li><%= render :partial => "thumbnail_youtube", :locals => {:video => video, :size =>2} %></li>
+    <% end %>
+  </ul>
+</div>
+

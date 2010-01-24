@@ -1,9 +1,30 @@
-<% title "Welcome to Video Tweet" %>
+<% title "Welcome to Video Tweet Gallery", false %>
 
-<%= render :partial => "shared/embed_youtube", :locals => {:video => @current_video} %>
+<% javascript_tag :defer => 'defer' do -%>
+gallery = $('#video_gallery').galleryView({
+	panel_width: 716,
+	panel_height: 444,
+	frame_width: 130,
+	frame_height: 97,
+});
+<% end %>
 
-<ul>
-  <% @videos.each do |video|  %>
-    <%= render :partial => "shared/thumbnail_youtube", :locals => {:video => video} %>
-  <% end %>
-</ul>
+<div class="player">
+
+  <div class="tweetbox">
+    <% if current_user %>
+      <%= render :partial => 'users/tweets' %>
+    <% else %>
+      <%= render :partial => 'user_sessions/login' %>
+    <% end %>
+  </div> 
+
+  <% if @videos.size > 0 %>
+    <%= render :partial => 'video_gallery', :locals => {:videos => @videos} %>
+  <% else %>
+    <h2>You have not added any videos</h2>
+  <%end%>
+
+</div>
+
+

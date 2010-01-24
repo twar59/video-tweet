@@ -2,18 +2,15 @@
 
 <table>
 	<tr>
-		<th>User</th>
-		<th>Video</th>
+		<th>Youtube ID</th>
 		<th>Description</th>
 		<th>Title</th>
 	</tr>
 	<% for video in @videos %>
 	<tr>
-		<td><%=h video.user_id %></td>
 		<td><%=h video.video_id %></td>
 		<td><%=h video.description %></td>
 		<td><%=h video.title %></td>
-		<td><%= link_to "Show", video %></td>
 		<td><%= link_to "Edit", edit_video_path(video) %></td>
 		<td><%= link_to "Destroy", video, :confirm => 'Are you sure?', :method => :delete %></td>
 	</tr>

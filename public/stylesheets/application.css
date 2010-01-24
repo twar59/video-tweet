@@ -1,5 +1,5 @@
 body {
-  background-color: #4B7399;
+  background-color: #fff;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -18,12 +18,31 @@ a {
   overflow: hidden;
 }
 
+.tweetbox {
+  float: right;
+  color: #fff;
+  width: 250px;
+  margin: 0px 20px;
+  padding: 5px; 
+  background-color: #000;
+  border: solid 1px #fff;
+}
+.tweetbox .submit input {
+  width: 100px;
+}
+.tweetbox input {
+  width: 200px;
+}
+.tweetbox a {
+  font-weight: bold;
+  color: yellow;
+}
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
-  border: solid 1px black;
+  background-color: #ccc;
+  padding: 0px 40px 20px 40px;
+  border: solid 1px #fff;
   margin-top: 20px;
 }
 
@@ -98,4 +117,13 @@ a {
 display: inline;
 list-style-type: none;
 padding-right: 20px;
+}
+.player h2 {
+  padding: 30px;
+}
+.player {
+  padding: 25px 0px;
+  background-color: #000;
+  height:550px;
+  color: #ccc;
 }

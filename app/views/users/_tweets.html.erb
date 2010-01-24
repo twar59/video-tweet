@@ -1,0 +1,10 @@
+<% tweets = Twitter.query_from(current_user.twitter_id) %>
+<% if tweets.size > 0 %>
+  <% tweets.each do |tweet| %>
+    <p>
+    <%= tweet["text"] %>
+    </p>
+  <% end %>
+<% else %>
+  <p>You do not have any tweets.<br/>Perhaps you have not added a tweeter id to your profile?</p>
+<% end %>

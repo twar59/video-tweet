@@ -1,22 +1,21 @@
-<h1>Video Tweet</h1>
-<hr/>
-
+<h1 style="float:left">Video Tweet</h1>
 <div class="navbar">
   <ul class="hmenu">
+    <% if current_user %>
+      <li>Welcome <%= current_user.name %></li>
+    <% end %>
     <li><%= link_to "Home", root_path %></li>
     <% if current_user %>
 
       <% if current_user.is_admin %>
         <li><%= link_to "Manage Users", users_path %></li>
-        <li><%= link_to "Manage Videos", users_path %></li>
         <li>|</li>
       <% end %>
 
       <li><%= link_to "My Videos", videos_path %></li>
+      <li><%= link_to "My Profile", edit_user_path(current_user) %></li>
       <li><%= link_to "Logout", logout_path %></li>
-    <% else %>
-      <li><%= link_to "Sign up", signup_path %></li>
-      <li><%= link_to "Login", login_path %></li>
     <% end %>
   </ul>
 </div>
+<div class="clear"></div>
