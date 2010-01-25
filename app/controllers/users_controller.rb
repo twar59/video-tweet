@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :require_public_or_admin, :only => [:new, :create]
   before_filter :require_owner, :only => [:edit, :update, :show]
-  before_filter :require_admin, :only => [:index, :new, :create, :destroy]
+  before_filter :require_admin, :only => [:index, :destroy]
 
   def index
     @users = User.all
@@ -46,6 +47,11 @@ class UsersController < ApplicationController
   end
 
   protected
+
+  def require_public_or_admin
+    return true unless logged_in?
+    require_admin
+  end
 
   def require_owner
     @user = User.find(params[:id])

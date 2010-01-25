@@ -12,6 +12,7 @@
 
   <% if @videos.size > 0 %>
     <%= render :partial => 'video_gallery', :locals => {:videos => @videos} %>
+    <div class="clear"></div>
   <% else %>
     <h2>You have not added any videos</h2>
   <%end%>

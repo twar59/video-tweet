@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     @video = current_user.videos.build(params[:video])
     if @video.save
       flash[:notice] = "Successfully created video."
-      redirect_to @video
+      redirect_to videos_path
     else
       render :action => 'new'
     end
